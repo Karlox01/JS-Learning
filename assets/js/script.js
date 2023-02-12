@@ -49,8 +49,11 @@ function checkAnswer() {
 
     if (isCorrect) {
         alert('Hey! you got it right :)');
+        incrementScore();
     } else {
         alert(`You got the wrong answer, You said ${userAnswer}. The correct answer is ${calculatedAnswer[0]}`);
+        incrementWrongAnswer();
+
     }
 
     runGame(calculatedAnswer[1]);
@@ -77,11 +80,26 @@ function calculateCorrectAnswer() {
 
 }
 
+/**
+ * Gets the current score from the DOM and increments it by 1 
+ */
 function incrementScore() {
+
+    let oldScore = parseInt(document.getElementById('score').innerText);
+    document.getElementById('score').innerText = ++oldScore; // we could have as well said oldScore + 1, However this is a newer way of writing JS, The reason why we 
+    // Are writing ++ before oldScore , is because if we put oldScore++ , JS would display the value of oldScore in HTML and would than update + 1, But HTML doesnt work
+    //This way , And even tho the score would be updated and correct in console , In HTML it would not , Putting ++oldScore , Ensures all calculations are done prior to displaying
+
 
 }
 
+
+/**
+ * Gets the current tally of incorrect answers from the DOM and increments it by 1 
+ */
 function incrementWrongAnswer() {
+    let oldScore = parseInt(document.getElementById('incorrect').innerText);
+    document.getElementById('incorrect').innerText = ++oldScore; 
 
 }
 
