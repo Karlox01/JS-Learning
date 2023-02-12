@@ -17,7 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
         })
 
     }
-    
+    document.getElementById("answer-box").addEventListener('keydown', function(kakica) {
+        if (kakica.key === "Enter") {
+            checkAnswer();
+        }
+    })
     runGame('addition');
 })
 
@@ -30,6 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
  * and after the users answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
+
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
